@@ -1,0 +1,21 @@
+{
+  "name": "projetnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "csv": "^5.1.1",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "react": "^16.8.4",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
