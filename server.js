@@ -6,7 +6,7 @@ const fs = require("fs");
 
 
 const database = require('./config/dbconfig');
-database.init()
+
 
 
   const server = express();
@@ -25,7 +25,7 @@ database.init()
   server.get('/endpoint',(req,res)=>{
     res.redirect(REST_API_ROOT+'/equipement/')
   });
-  server.listen(3000, (err) => {
+  server.listen(3001, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log('> Ready on http://localhost:3001')
   })
