@@ -6,7 +6,7 @@ class Installation extends React.Component{
         installations : []
     };
    handleSearch = ()=>{
-       Client.searchAll(installations =>{
+       Client.searchAllInstallation(installations =>{
            this.setState({
                installations : installations.slice(0,100)
            });

@@ -1,7 +1,24 @@
-function searchAll(cb) {
+function searchAllInstallation(cb) {
     return fetch(`api/installation`,
         { accept :'application/json'
     })
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+}
+
+function searchAllActivite(cb) {
+    return fetch(`api/activite`,
+        {accept : 'application/json'})
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+
+}
+
+function searchAllEquipement(cb) {
+    return fetch(`api/equipement`,
+        {accept :'application/json'})
         .then(checkStatus)
         .then(parseJSON)
         .then(cb);
@@ -13,7 +30,7 @@ function checkStatus(res) {
     }
     const error = new Error(`HTTP Error ${res.statusText}`);
     error.status = res.statusText;
-    error.response = res
+    error.response = res;
     console.log(error);
     throw error;
 }
@@ -21,5 +38,5 @@ function checkStatus(res) {
 function parseJSON(response) {
     return response.json();
 }
-const Client = {searchAll};
+const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement};
 export default Client;
