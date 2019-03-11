@@ -43,3 +43,4 @@ class Activite extends React.Component{
 
     }
 }
+export default Activite
