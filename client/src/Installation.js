@@ -12,7 +12,7 @@ class Installation extends React.Component{
            });
        });
    };
-
+/*Partie rendu html */
     render(){
 
        const foodRows = this.state.installations.map((installation,i)=>(
