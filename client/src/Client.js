@@ -1,5 +1,5 @@
 function searchAll(cb) {
-    return fetch(`api/installation/`,
+    return fetch(`api/installation`,
         { accept :'application/json'
     })
         .then(checkStatus)
