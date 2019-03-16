@@ -23,7 +23,7 @@ class ActiviteDao {
                 for (const row of rows){
                     activites.push(new Activite(row.activite_code, row.activite_libelle, new Equipement(row.numero_de_la_fiche_equipement,
                         new Installation(row.numero_de_l_installation, row.nom_usuel_de_l_installation, row.code_postal, row.nom_de_la_commune))));
-                console.log(activites);
+
                 }
                 return activites;
             }
