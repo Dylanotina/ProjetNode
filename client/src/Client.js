@@ -25,7 +25,21 @@ function searchAllEquipement(cb) {
 }
 
 function searchVille(query, cb){
-    return fetch(`api/installation/${query}`)
+    return fetch(`api/installation/ville/${query}`)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+}
+
+function searchCodePostal(query,cb){
+    return fetch(`api/installation/code_postal/${query}`)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+}
+
+function searchNomInstallation(query, cb) {
+    return fetch(`api/installation/nom/${query}`)
         .then(checkStatus)
         .then(parseJSON)
         .then(cb);
@@ -45,5 +59,5 @@ function checkStatus(res) {
 function parseJSON(response) {
     return response.json();
 }
-const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille};
+const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille,searchCodePostal,searchNomInstallation};
 export default Client;

@@ -20,8 +20,29 @@ class Installation extends React.Component{
            });
        });
    };
+   handleSearchCodePostal =()=>{
+       Client.searchCodePostal(this.state.inputValue,installations=>{
+           this.setState({
+               installations :installations.slice(0,100)
+           });
+       });
+   };
+
+   handleSearchNomInstallation =()=>{
+       Client.searchNomInstallation(this.state.inputValue, installations=>{
+           this.setState({
+               installations:installations.slice(0,100)
+           });
+       });
+   };
 
 /*Partie rendu html */
+    updateInputValue(evt){
+        this.setState({
+            inputValue : evt.target.value
+        });
+    }
+
     render(){
 
        const foodRows = this.state.installations.map((installation,i)=>(
@@ -34,7 +55,8 @@ class Installation extends React.Component{
        ));
         return(
         <div id="tableau-installation">
-            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}></input>
+            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Nom de la ville
+            <button onClick={this.handleSearchVille}>Chercher</button>
             <table>
                 <thead>
                 <tr>
@@ -51,6 +73,9 @@ class Installation extends React.Component{
                 {foodRows}
                 </tbody>
             </table>
+
+            <button onClick={this.handleSearchCodePostal}>Code Postal</button>
+            <button onClick={this.handleSearchNomInstallation}>Nom</button>
         </div>
         );
 
