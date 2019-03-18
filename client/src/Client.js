@@ -24,6 +24,13 @@ function searchAllEquipement(cb) {
         .then(cb);
 }
 
+function searchVille(query, cb){
+    return fetch(`api/installation/${query}`)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+}
+
 function checkStatus(res) {
     if(res.status >=200 && res.status<300){
         return res;
@@ -38,5 +45,5 @@ function checkStatus(res) {
 function parseJSON(response) {
     return response.json();
 }
-const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement};
+const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille};
 export default Client;

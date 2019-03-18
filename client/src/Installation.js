@@ -3,15 +3,24 @@ import Client from "./Client";
 
 class Installation extends React.Component{
     state = {
-        installations : []
+        installations : [],
+        inputValue : null
     };
-   handleSearch = ()=>{
+   handleSearchAll = ()=>{
        Client.searchAllInstallation(installations =>{
            this.setState({
                installations : installations.slice(0,100)
            });
        });
    };
+   handleSearchVille =()=>{
+       Client.searchVille(this.state.inputValue,installations=>{
+           this.setState({
+               installations :installations.slice(0,100)
+           });
+       });
+   };
+
 /*Partie rendu html */
     render(){
 
@@ -25,6 +34,7 @@ class Installation extends React.Component{
        ));
         return(
         <div id="tableau-installation">
+            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}></input>
             <table>
                 <thead>
                 <tr>
@@ -32,7 +42,7 @@ class Installation extends React.Component{
                     <th>Nom de l'installation</th>
                     <th>Code Postal</th>
                     <th>Ville</th>
-                    <button onClick={this.handleSearch}>
+                    <button onClick={this.handleSearchAll}>
                         Clique pour chercher
                     </button>
                 </tr>
