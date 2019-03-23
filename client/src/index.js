@@ -11,12 +11,14 @@ import Home from "./Home";
 
 
 
+
 ReactDOM.render(<BrowserRouter>
         <Route path='/' component={App}>
+            <Route path='/' exact component={Home}/>
             <Route path='/activite' component={Activite}/>
             <Route path='/equipement' component={Equipement}/>
             <Route path={'/installation'} component={Installation}/>
-            <Route path='/*' component={Home}/>
+
         </Route>
     </BrowserRouter>,
     document.getElementById('root')

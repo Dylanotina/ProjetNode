@@ -77,7 +77,22 @@ class InstallationDao {
         });
 
     };
+    findbyTypeActivite(activite){
+        const sqlRequest ="select distinct installation.nom_usuel_de_l_installation,installation.numero_de_l_installation"
+            +",installation.code_postal, installation.nom_de_la_commune from activite, equipement, installation"
+            +"where activite.numero_de_la_fiche_equipement = equipement.numero_de_la_fiche_equipement "
+            +"and equipement.numero_de_l_installation="
+            +"installation.numero_de_l_installation and activite.activite_libelle like $activite";
 
+        const  sqlParams = {$activite :"%"+activite+"%"};
+        return this.common.findAllWithParams(sqlRequest,sqlParams).then(rows=>{
+            let installations = [];
+            for (const row of rows) {
+                installations.push(new Installation(row.numero_de_l_installation, row.nom_usuel_de_l_installation, row.code_postal, row.nom_de_la_commune));
+            }
+            return installations;
+            });
+    }
 
 }
 

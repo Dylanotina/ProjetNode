@@ -7,7 +7,7 @@ const InstallationController = require('../../controller/installationController'
 const installationController = new InstallationController();
 
 /**
- * Installation Entity routes
+ * Client Entity routes
  */
 
 
@@ -25,6 +25,9 @@ router.get('/ville/:nom_de_la_commune',function(req,res){
 
 router.get('/nom/:nom_usuel_de_l_installation',function(req,res){
     installationController.findByNomInstallation(req,res);
+});
+router.get('/activite/:activite_libelle',function (req,res) {
+    installationController.findByTypeActivite(req,res);
 });
 
 

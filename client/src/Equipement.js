@@ -17,7 +17,6 @@ class Equipement extends React.Component{
         const foodRows = this.state.equipements.map((equipements,i)=>(
             <tr>
                 <td key={i}>{equipements.numeroDeLaFicheEquipement}</td>
-                <td key={i}>{equipements.installation}</td>
             </tr>
         ));
         return(

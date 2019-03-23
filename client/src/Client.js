@@ -45,6 +45,13 @@ function searchNomInstallation(query, cb) {
         .then(cb);
 }
 
+function searchTypeActivite(query,cb) {
+    return fetch(`api/installation/activite/${query}`)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(cb);
+}
+
 function checkStatus(res) {
     if(res.status >=200 && res.status<300){
         return res;
@@ -59,5 +66,5 @@ function checkStatus(res) {
 function parseJSON(response) {
     return response.json();
 }
-const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille,searchCodePostal,searchNomInstallation};
+const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille,searchCodePostal,searchNomInstallation,searchTypeActivite};
 export default Client;

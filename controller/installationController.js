@@ -4,11 +4,11 @@ const InstallationDao = require('../dao/installationDao');
 /* Load Controller Common function */
 const ControllerCommon = require('./common/controllerCommon');
 
-/* Load Installation entity */
-//const Installation = require('../model/installation');
+/* Load Client entity */
+//const Client = require('../model/installation');
 
 /**
- * Installation Controller
+ * Client Controller
  */
 class InstallationController {
 
@@ -42,7 +42,13 @@ class InstallationController {
     }
     findByNomInstallation(req,res){
         const nom =req.params.nom_usuel_de_l_installation;
-        this.installationDao.findByNomVille(nom)
+        this.installationDao.findByNomInstallation(nom)
+            .then(this.common.findSuccess(res))
+            .catch(this.common.findError(res));
+    }
+    findByTypeActivite(req,res){
+        const activite =req.params.activite_libelle;
+        this.installationDao.findbyTypeActivite(activite)
             .then(this.common.findSuccess(res))
             .catch(this.common.findError(res));
     }

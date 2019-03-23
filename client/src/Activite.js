@@ -18,7 +18,7 @@ class Activite extends React.Component{
             <tr>
                 <td key={i}>{activite.activiteCode}</td>
                 <td key={i}>{activite.activiteLibelle}</td>
-                <td key={i}>{activite.equipement}</td>
+
             </tr>
         ));
         return(
@@ -28,7 +28,6 @@ class Activite extends React.Component{
                     <tr>
                         <th>Code de l'activite</th>
                         <th>Libellé de l'activite</th>
-                        <th>Equipement</th>
                         <button onClick={this.handleSearch}>
                             Clique pour chercher
                         </button>

@@ -1,7 +1,8 @@
 import React from "react";
 import Client from "./Client";
+import {Link} from "react-router-dom";
 
-class Installation extends React.Component{
+export default class Installation extends React.Component{
     state = {
         installations : [],
         inputValue : null
@@ -43,18 +44,16 @@ class Installation extends React.Component{
         });
     }
 
-    render(){
-
-       const foodRows = this.state.installations.map((installation,i)=>(
-           <tr>
-               <td key={i}>{installation.noDeLInstallation}</td>
-               <td key={i}>{installation.nomUsuelDeLInstallation}</td>
-               <td key={i}>{installation.codePostal}</td>
-               <td key={i}>{installation.nomDeLaCommune}</td>
-           </tr>
-       ));
-        return(
-        <div id="tableau-installation">
+     RechercheVille(){
+         const foodRows = this.state.installations.map((installation,i)=>(
+             <tr>
+                 <td key={i}>{installation.noDeLInstallation}</td>
+                 <td key={i}>{installation.nomUsuelDeLInstallation}</td>
+                 <td key={i}>{installation.codePostal}</td>
+                 <td key={i}>{installation.nomDeLaCommune}</td>
+             </tr>
+         ));
+        return (<div id="tableau-installation">
             <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Nom de la ville
             <button onClick={this.handleSearchVille}>Chercher</button>
             <table>
@@ -64,9 +63,34 @@ class Installation extends React.Component{
                     <th>Nom de l'installation</th>
                     <th>Code Postal</th>
                     <th>Ville</th>
-                    <button onClick={this.handleSearchAll}>
-                        Clique pour chercher
-                    </button>
+                </tr>
+                </thead>
+                <tbody>
+                {foodRows}
+                </tbody>
+            </table>
+        </div>
+        );
+    }
+
+    RechercheCodePostal(){
+        const foodRows = this.state.installations.map((installation,i)=>(
+            <tr>
+                <td key={i}>{installation.noDeLInstallation}</td>
+                <td key={i}>{installation.nomUsuelDeLInstallation}</td>
+                <td key={i}>{installation.codePostal}</td>
+                <td key={i}>{installation.nomDeLaCommune}</td>
+            </tr>
+        ));
+        return <div id="tableau-installation">
+            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Code Postal
+            <table>
+                <thead>
+                <tr>
+                    <th>Numéro de l'installation</th>
+                    <th>Nom de l'installation</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -75,10 +99,49 @@ class Installation extends React.Component{
             </table>
 
             <button onClick={this.handleSearchCodePostal}>Code Postal</button>
-            <button onClick={this.handleSearchNomInstallation}>Nom</button>
-        </div>
-        );
-
+            </div>
     }
+
+    RechercheNomInstallation(){
+        const foodRows = this.state.installations.map((installation,i)=>(
+            <tr>
+                <td key={i}>{installation.noDeLInstallation}</td>
+                <td key={i}>{installation.nomUsuelDeLInstallation}</td>
+                <td key={i}>{installation.codePostal}</td>
+                <td key={i}>{installation.nomDeLaCommune}</td>
+            </tr>
+        ));
+        return <div id="tableau-installation">
+            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Nom de l'installation
+            <table>
+                <thead>
+                <tr>
+                    <th>Numéro de l'installation</th>
+                    <th>Nom de l'installation</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foodRows}
+                </tbody>
+            </table>
+            <button onClick={this.handleSearchNomInstallation}>Nom</button>
+
+        </div>
+    }
+
+
+
+    render(){
+        return(
+            <div>
+            <Link to={'/rechercheVille'}>Recherche par Ville</Link>
+            <Link to={'/rechercheCodePostal'}>Recherche par code Postal</Link>
+            <Link to={'/rechercheParNomInstallation'}>Recherche par nom d'installation</Link>
+            </div>
+                );
+
+    };
 }
-export default Installation
+
