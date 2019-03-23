@@ -1,5 +1,8 @@
 import React from "react";
 import Client from "../Client";
+import './../css/ville.css';
+import './../css/bootstrap1.min.css'
+
 
 
 class Installation_RechercheVille extends React.Component{
@@ -22,7 +25,7 @@ class Installation_RechercheVille extends React.Component{
 
     render() {
         const foodRows = this.state.installations.map((installation,i)=>(
-            <tr>
+            <tr class="table-dark">
                 <td key={i}>{installation.noDeLInstallation}</td>
                 <td key={i}>{installation.nomUsuelDeLInstallation}</td>
                 <td key={i}>{installation.codePostal}</td>
@@ -30,11 +33,15 @@ class Installation_RechercheVille extends React.Component{
             </tr>
         ));
         return (<div id="tableau-installation">
-                <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Nom de la ville
-                <button onClick={this.handleSearchVille}>Chercher</button>
-                <table>
+
+                <h2> Recherche par Ville </h2>
+                <label>Nom de la ville : </label><input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
+                <button class="chercher" onClick={this.handleSearchVille}> CHARGER</button>
+                <br/>
+                <br/>
+                <table class="table table-hover">
                     <thead>
-                    <tr>
+                    <tr class="table-warning">
                         <th>Numéro de l'installation</th>
                         <th>Nom de l'installation</th>
                         <th>Code Postal</th>
