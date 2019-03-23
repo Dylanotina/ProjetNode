@@ -1,6 +1,6 @@
 import React from "react";
 import Client from "../Client";
-
+import Table from "react-bootstrap/Table";
 
 
 class Installation extends React.Component{
@@ -37,7 +37,8 @@ class Installation extends React.Component{
         ));
         return(
             <div>
-                    <table>
+                <Table striped bordered hover>
+
                         <thead>
                         <tr>
                             <th>Numéro de l'installation</th>
@@ -49,7 +50,7 @@ class Installation extends React.Component{
                         <tbody>
                         {foodRows}
                         </tbody>
-                    </table>
+                </Table>
                 </div>
 
 
