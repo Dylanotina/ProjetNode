@@ -1,7 +1,7 @@
 import React from "react";
 import Client from "../Client";
 import Table from "react-bootstrap/Table";
-
+import {Link} from "react-router-dom";
 
 class Installation extends React.Component{
     state = {
@@ -37,6 +37,9 @@ class Installation extends React.Component{
         ));
         return(
             <div>
+                <div>
+                    <Link to={'/'}>Home</Link>
+                </div>
                 <Table striped bordered hover>
 
                         <thead>

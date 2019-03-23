@@ -1,5 +1,7 @@
 import React from "react";
 import Client from "../Client";
+import Table from "react-bootstrap/Table"
+import {Link} from "react-router-dom";
 
 class Installation_RechercheCodePostal extends React.Component{
     state ={
@@ -19,7 +21,12 @@ class Installation_RechercheCodePostal extends React.Component{
         });
     }
 
+
     render() {
+        const  buttonStyle ={
+            margin:'25px',
+            textAlign : 'center'
+        };
         const foodRows = this.state.installations.map((installation,i)=>(
             <tr>
                 <td key={i}>{installation.noDeLInstallation}</td>
@@ -29,8 +36,12 @@ class Installation_RechercheCodePostal extends React.Component{
             </tr>
         ));
         return <div id="tableau-installation">
-            <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Code Postal
-            <table>
+            <div>
+                <Link to={'/'}>Home</Link>
+            </div>
+            Code Postal :<input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
+            <button style={buttonStyle}  onClick={this.handleSearchCodePostal}>Code Postal</button>
+            <Table striped bordered hover>
                 <thead>
                 <tr>
                     <th>Numéro de l'installation</th>
@@ -42,9 +53,9 @@ class Installation_RechercheCodePostal extends React.Component{
                 <tbody>
                 {foodRows}
                 </tbody>
-            </table>
+            </Table>
 
-            <button onClick={this.handleSearchCodePostal}>Code Postal</button>
+
         </div>
 
     }
