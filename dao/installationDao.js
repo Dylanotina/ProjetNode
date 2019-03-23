@@ -77,12 +77,13 @@ class InstallationDao {
         });
 
     };
-    findbyTypeActivite(activite){
-        const sqlRequest ="select distinct installation.nom_usuel_de_l_installation,installation.numero_de_l_installation"
-            +",installation.code_postal, installation.nom_de_la_commune from activite, equipement, installation"
-            +"where activite.numero_de_la_fiche_equipement = equipement.numero_de_la_fiche_equipement "
-            +"and equipement.numero_de_l_installation="
-            +"installation.numero_de_l_installation and activite.activite_libelle like $activite";
+    findByTypeActivite(activite){
+        const sqlRequest ="select distinct installation.nom_usuel_de_l_installation," +
+            "installation.numero_de_l_installation,installation.code_postal," +
+            " installation.nom_de_la_commune from activite, equipement, installation " +
+            "where activite.numero_de_la_fiche_equipement = equipement.numero_de_la_fiche_equipement " +
+            "and equipement.numero_de_l_installation=installation.numero_de_l_installation " +
+            "and activite.activite_libelle like $activite";
 
         const  sqlParams = {$activite :"%"+activite+"%"};
         return this.common.findAllWithParams(sqlRequest,sqlParams).then(rows=>{

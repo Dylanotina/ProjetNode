@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Installation from "./Installation"
+import Installation from "./Pages_installation/Installation"
 
 class App extends Component {
   render() {

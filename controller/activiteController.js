@@ -29,6 +29,11 @@ class ActiviteController {
             .catch(this.common.findError(res));
     };
 
+    recupererToutesActivites(res){
+        this.activiteDao.RecupereToutLesLibelles()
+            .then(this.common.findSuccess(res))
+            .catch(this.common.findError(res));
+    }
 }
 
 module.exports = ActiviteController;

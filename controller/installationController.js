@@ -48,7 +48,7 @@ class InstallationController {
     }
     findByTypeActivite(req,res){
         const activite =req.params.activite_libelle;
-        this.installationDao.findbyTypeActivite(activite)
+        this.installationDao.findByTypeActivite(activite)
             .then(this.common.findSuccess(res))
             .catch(this.common.findError(res));
     }

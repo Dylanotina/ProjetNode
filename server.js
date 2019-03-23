@@ -23,7 +23,7 @@ const database = require('./config/dbconfig');
 
 
   server.get('/endpoint',(req,res)=>{
-    res.redirect(REST_API_ROOT+'/equipement/')
+    res.redirect(REST_API_ROOT+'/activite/recuperer')
   });
   server.listen(3001, (err) => {
     if (err) throw err

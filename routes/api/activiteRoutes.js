@@ -21,6 +21,10 @@ router.get('/',function(req,res){
     activiteController.findAll(res);
 });
 
+router.get('/recuperer',function(req,res){
+    activiteController.recupererToutesActivites(res);
+});
+
 
 
 

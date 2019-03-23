@@ -52,7 +52,14 @@ function searchTypeActivite(query,cb) {
         .then(cb);
 }
 
-function checkStatus(res) {
+function RecupererLesLibelles(cb) {
+    return fetch(`api/activite/`)
+        .then(parseJSON)
+        .then(cb);
+
+}
+
+function checkStatus(res){
     if(res.status >=200 && res.status<300){
         return res;
     }
@@ -66,5 +73,5 @@ function checkStatus(res) {
 function parseJSON(response) {
     return response.json();
 }
-const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille,searchCodePostal,searchNomInstallation,searchTypeActivite};
+const Client = {searchAllInstallation,searchAllActivite,searchAllEquipement,searchVille,searchCodePostal,searchNomInstallation,searchTypeActivite,RecupererLesLibelles};
 export default Client;

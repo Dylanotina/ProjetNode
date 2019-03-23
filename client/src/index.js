@@ -6,9 +6,12 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import App from "./App";
 import Activite from "./Activite";
 import Equipement from "./Equipement";
-import Installation from "./Installation";
+import Installation from "./Pages_installation/Installation";
 import Home from "./Home";
-
+import Installation_RechercheActivite from "./Pages_installation/Installation_RechercheActivite"
+import Installation_RechercheVille from "./Pages_installation/Installation_RechercheVille";
+import Installation_RechercheCodePostal from "./Pages_installation/Installation_RechercheCodePostal";
+import Installation_RechercheNom from "./Pages_installation/Installation_RechercheNom";
 
 
 
@@ -18,7 +21,10 @@ ReactDOM.render(<BrowserRouter>
             <Route path='/activite' component={Activite}/>
             <Route path='/equipement' component={Equipement}/>
             <Route path={'/installation'} component={Installation}/>
-
+            <Route path={'/rechecheTypeActivite'} component={Installation_RechercheActivite}/>
+            <Route path={'/rechercheVille'} component={Installation_RechercheVille}/>
+            <Route path={'/rechercheCodePostal'} component={Installation_RechercheCodePostal}/>
+            <Route path={'/rechercheParNomInstallation'} component={Installation_RechercheNom}/>
         </Route>
     </BrowserRouter>,
     document.getElementById('root')
