@@ -1,5 +1,6 @@
 import React from 'react';
 import   {Link} from 'react-router-dom';
+import './css/style.css'
 
 
  class Home extends React.Component{
@@ -7,7 +8,7 @@ import   {Link} from 'react-router-dom';
     render() {
         return(
             <div>
-                This is the home page.<br/>
+                <h1>Page d'Accueil </h1>
                 <ul>
                     <li><Link to="/installation">Liste de toutes les Installations</Link></li>
                     <li><Link to={'/rechercheVille'}>Recherche par Ville</Link></li>
