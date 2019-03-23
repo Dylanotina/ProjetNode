@@ -1,7 +1,7 @@
 import React from "react";
 import Client from "../Client";
-import Table from "react-bootstrap/Table";
 import {Link} from "react-router-dom";
+import "../css/installations.css"
 
 class Installation extends React.Component{
     state = {
@@ -37,13 +37,12 @@ class Installation extends React.Component{
         ));
         return(
             <div>
-                <div>
-                    <Link to={'/'}>Home</Link>
-                </div>
-                <Table striped bordered hover>
-
+                <h2>Liste des installations</h2>
+                    <Link to={'/'}><button class="btn btn-secondary">Home </button></Link>
+                <br/>
+                <table class="table table-hover">
                         <thead>
-                        <tr>
+                        <tr class="table-warning">
                             <th>Numéro de l'installation</th>
                             <th>Nom de l'installation</th>
                             <th>Code Postal</th>
@@ -53,7 +52,7 @@ class Installation extends React.Component{
                         <tbody>
                         {foodRows}
                         </tbody>
-                </Table>
+                </table>
                 </div>
 
 
