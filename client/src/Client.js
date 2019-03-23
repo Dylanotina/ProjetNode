@@ -53,7 +53,7 @@ function searchTypeActivite(query,cb) {
 }
 
 function RecupererLesLibelles(cb) {
-    return fetch(`api/activite/`)
+    return fetch(`api/activite/recuperer`)
         .then(parseJSON)
         .then(cb);
 

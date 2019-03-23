@@ -2,6 +2,7 @@ import React from "react";
 import Client from "../Client";
 import './../css/ville.css';
 import './../css/bootstrap1.min.css'
+import {Link} from "react-router-dom";
 
 class Installation_RechercheNom extends  React.Component{
     state ={
@@ -34,9 +35,9 @@ render() {
     return <div id="tableau-installation">
 
         <h2> Recherche par Nom d'Installation </h2>
-        <a href="http://localhost:3000/">
+        <Link to={'/'}>
             <button className="btn btn-secondary"> Accueil</button>
-        </a>
+        </Link>
         <br/><br/>
         <label>Nom de l'installation : </label><input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
         <button class="chercher" onClick={this.handleSearchNomInstallation}>CHARGER</button>
