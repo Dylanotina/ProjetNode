@@ -8,10 +8,14 @@ import   {Link} from 'react-router-dom';
         return(
             <div>
                 This is the home page.<br/>
-                <Link to="/installation">Liste des Installations</Link><br/>
-                <Link to="/activite">Liste des Activités</Link><br/>
-                <Link to="/equipement">Liste des Equipements</Link><br/>
-            </div>
+                <ul>
+                    <li><Link to="/installation">Liste des Installations</Link></li>
+                    <li><Link to={'/rechercheVille'}>Recherche par Ville</Link></li>
+                    <li><Link to={'/rechercheCodePostal'}>Recherche par code Postal</Link></li>
+                    <li><Link to={'/rechecheTypeActivite'}>Recheche par Type d'activité</Link></li>
+                    <li><Link to={'/rechercheParNomInstallation'}>Recherche par nom d'installation</Link></li>
+                </ul>
+                </div>
         );
     }
 }
