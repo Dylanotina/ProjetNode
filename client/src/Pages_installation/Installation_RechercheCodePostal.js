@@ -2,6 +2,7 @@ import React from "react";
 import Client from "../Client";
 import Table from "react-bootstrap/Table"
 import {Link} from "react-router-dom";
+import "../css/codePostal.css"
 
 class Installation_RechercheCodePostal extends React.Component{
     state ={
@@ -40,10 +41,10 @@ class Installation_RechercheCodePostal extends React.Component{
                 <Link to={'/'}>Home</Link>
             </div>
             Code Postal :<input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
-            <button style={buttonStyle}  onClick={this.handleSearchCodePostal}>Code Postal</button>
-            <Table striped bordered hover>
+            <button style={buttonStyle}  onClick={this.handleSearchCodePostal} class="chercher">Charger</button>
+            <table class="table table-hover">
                 <thead>
-                <tr>
+                <tr class="table-warning">
                     <th>Numéro de l'installation</th>
                     <th>Nom de l'installation</th>
                     <th>Code Postal</th>
@@ -53,7 +54,7 @@ class Installation_RechercheCodePostal extends React.Component{
                 <tbody>
                 {foodRows}
                 </tbody>
-            </Table>
+            </table>
 
 
         </div>
