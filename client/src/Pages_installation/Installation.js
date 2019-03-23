@@ -28,7 +28,7 @@ class Installation extends React.Component{
 
     render(){
         const foodRows = this.state.installations.map((installation,i)=>(
-            <tr>
+            <tr class="table-dark">
                 <td key={i}>{installation.noDeLInstallation}</td>
                 <td key={i}>{installation.nomUsuelDeLInstallation}</td>
                 <td key={i}>{installation.codePostal}</td>
@@ -38,8 +38,8 @@ class Installation extends React.Component{
         return(
             <div>
                 <h2>Liste des installations</h2>
-                    <Link to={'/'}><button class="btn btn-secondary">Home </button></Link>
-                <br/>
+                    <Link to={'/'}><button class="btn btn-secondary">Accueil </button></Link>
+                <br/><br/>
                 <table class="table table-hover">
                         <thead>
                         <tr class="table-warning">

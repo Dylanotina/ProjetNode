@@ -1,5 +1,7 @@
 import React from "react";
 import Client from "../Client";
+import './../css/ville.css';
+import './../css/bootstrap1.min.css'
 
 class Installation_RechercheNom extends  React.Component{
     state ={
@@ -22,7 +24,7 @@ class Installation_RechercheNom extends  React.Component{
 
 render() {
     const foodRows = this.state.installations.map((installation,i)=>(
-        <tr>
+        <tr class="table-dark">
             <td key={i}>{installation.noDeLInstallation}</td>
             <td key={i}>{installation.nomUsuelDeLInstallation}</td>
             <td key={i}>{installation.codePostal}</td>
@@ -30,10 +32,18 @@ render() {
         </tr>
     ));
     return <div id="tableau-installation">
-        <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>Nom de l'installation
-        <table>
+
+        <h2> Recherche par Nom d'Installation </h2>
+        <a href="http://localhost:3000/">
+            <button className="btn btn-secondary"> Accueil</button>
+        </a>
+        <br/><br/>
+        <label>Nom de l'installation : </label><input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
+        <button class="chercher" onClick={this.handleSearchNomInstallation}>CHARGER</button>
+        <br/><br/>
+        <table class="table table-hover">
             <thead>
-            <tr>
+            <tr class=" table-warning">
                 <th>Numéro de l'installation</th>
                 <th>Nom de l'installation</th>
                 <th>Code Postal</th>
@@ -44,7 +54,7 @@ render() {
             {foodRows}
             </tbody>
         </table>
-        <button onClick={this.handleSearchNomInstallation}>Nom</button>
+
 
     </div>
     }

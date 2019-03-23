@@ -29,7 +29,7 @@ class Installation_RechercheCodePostal extends React.Component{
             textAlign : 'center'
         };
         const foodRows = this.state.installations.map((installation,i)=>(
-            <tr>
+            <tr class="table-dark">
                 <td key={i}>{installation.noDeLInstallation}</td>
                 <td key={i}>{installation.nomUsuelDeLInstallation}</td>
                 <td key={i}>{installation.codePostal}</td>
@@ -39,9 +39,9 @@ class Installation_RechercheCodePostal extends React.Component{
         return <div id="tableau-installation">
             <h2>Recherche par Code Postal</h2>
 
-            <Link to={'/'}><button class="btn btn-secondary">Home</button></Link>
-            <br/>
-            Code Postal :<input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
+            <Link to={'/'}><button class="btn btn-secondary">Accueil</button></Link>
+            <br/><br/>
+            <label>Code Postal : </label><input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
             <button style={buttonStyle}  onClick={this.handleSearchCodePostal} class="chercher">Charger</button>
             <table class="table table-hover">
                 <thead>
