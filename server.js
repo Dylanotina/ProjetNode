@@ -1,31 +1,29 @@
-
-const express = require('express');
+const express = require("express");
 
 const bodyParser = require("body-parser");
 const fs = require("fs");
 
+const database = require("./config/dbconfig");
 
-const database = require('./config/dbconfig');
+//database.init();
 
+const server = express();
 
+/* Express configuration */
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
 
-  const server = express();
+/* Router configuration */
+const REST_API_ROOT = "/api";
+server.use(REST_API_ROOT, require("./routes/router"));
 
-  /* Express configuration */
-  server.use(bodyParser.urlencoded({extended: false}));
-  server.use(bodyParser.json());
+server.use("/static", express.static("static"));
 
-  /* Router configuration */
-  const REST_API_ROOT = '/api';
-  server.use(REST_API_ROOT, require('./routes/router'));
+server.get("/endpoint", (req, res) => {
+  res.redirect(REST_API_ROOT + "/activite/recuperer");
+});
 
-  server.use('/static',express.static('static'));
-
-
-  server.get('/endpoint',(req,res)=>{
-    res.redirect(REST_API_ROOT+'/activite/recuperer')
-  });
-  server.listen(3001, (err) => {
-    if (err) throw err
-    console.log('> Ready on http://localhost:3001')
-  })
+server.listen(3001, err => {
+  if (err) throw err;
+  console.log("> Ready on http://localhost:3001");
+});

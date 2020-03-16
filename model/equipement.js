@@ -3,10 +3,11 @@
  */
 
 class Equipement {
-    constructor(numeroDeLaFicheEquipement, installation) {
-        this.numeroDeLaFicheEquipement =  numeroDeLaFicheEquipement;
-        this.installation = installation;
-    }
+  constructor(numeroDeLaFicheEquipement, installation, equipement) {
+    this.numeroDeLaFicheEquipement = numeroDeLaFicheEquipement;
+    this.installation = installation;
+    this.equipement = equipement;
+  }
 }
 
 module.exports = Equipement;
