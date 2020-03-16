@@ -41,3 +41,7 @@ label{
 *:focus {
     outline: 0 !important;
 }
+
+.custom-select{
+    width: 50%;
+}

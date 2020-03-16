@@ -34,10 +34,10 @@ render() {
     ));
     return <div id="tableau-installation">
 
-        <h2> Recherche par Nom d'Installation </h2>
-        <Link to={'/'}>
+        <h2> Recherche par Nom d'installation </h2>
+        <a href={"http://localhost:3000/"}>
             <button className="btn btn-secondary"> Accueil</button>
-        </Link>
+        </a>
         <br/><br/>
         <label>Nom de l'installation : </label><input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
         <button class="chercher" onClick={this.handleSearchNomInstallation}>CHARGER</button>
