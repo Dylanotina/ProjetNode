@@ -101,6 +101,38 @@ class InstallationDao {
     });
   }
 
+  findByCodeInstallation(codeInstallation) {
+    const sqlRequest =
+      "SELECT * FROM installation WHERE numero_de_l_installation LIKE $codeInstallation";
+    const sqlParams = {
+      $codeInstallation: "%" + codeInstallation + "%"
+    };
+
+    return this.common.findAllWithParams(sqlRequest, sqlParams).then(rows => {
+      let installations = [];
+
+      for (const row of rows) {
+        installations.push(
+          new Installation(
+            row.numero_de_l_installation,
+            row.nom_usuel_de_l_installation,
+            row.code_postal,
+            row.departement,
+            row.nom_de_la_commune,
+            row.nom_de_la_voie,
+            row.acces_handicape,
+            row.desserte_bus,
+            row.desserte_train,
+            row.desserte_metro,
+            row.localisation
+          )
+        );
+      }
+
+      return installations;
+    });
+  }
+
   findByNomInstallation(nom) {
     const sqlRequest =
       "SELECT * FROM installation WHERE nom_usuel_de_l_installation LIKE  $nom";
