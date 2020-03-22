@@ -1,14 +1,13 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchAllInstallation } from "../store/actions/index";
+import {
+  fetchAllInstallation,
+  setCodeInstallation
+} from "../store/actions/index";
 import "../css/installations.css";
 
 class Installation extends React.Component {
-  // componentDidMount() {
-  //   this.handleSearchAll();
-  // }
-
   componentWillMount() {
     this.props.fetchAllInstallation();
   }
@@ -19,8 +18,14 @@ class Installation extends React.Component {
     const InstallationsRows = this.props.installations.map(
       (installation, i) => (
         <tr className="table-dark" key={i}>
-          <td>
-            <Link to={`/installation/`}>{installation.noDeLInstallation}</Link>
+          <td
+            onClick={e =>
+              this.props.setCodeInstallation(installation.noDeLInstallation)
+            }
+          >
+            <Link to={`/installation/${installation.noDeLInstallation}`}>
+              {installation.noDeLInstallation}
+            </Link>
           </td>
           <td>{installation.nomUsuelDeLInstallation}</td>
           <td>{installation.codePostal}</td>
@@ -57,5 +62,7 @@ const mapStateToProps = state => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, { fetchAllInstallation })(Installation)
+  connect(mapStateToProps, { fetchAllInstallation, setCodeInstallation })(
+    Installation
+  )
 );

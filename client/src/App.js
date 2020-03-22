@@ -13,7 +13,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Route path="/" exact component={Home} />
-            <Route path="/installation/" component={Index} />
+            <Route path="/installation/:id" component={Index} />
           </div>
         </Router>
       </Provider>

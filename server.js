@@ -4,10 +4,13 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 
 const database = require("./config/dbconfig");
+const cors = require("cors");
 
 //database.init();
 
 const server = express();
+
+server.use(cors());
 
 /* Express configuration */
 server.use(bodyParser.urlencoded({ extended: false }));

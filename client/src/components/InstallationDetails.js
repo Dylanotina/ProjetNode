@@ -4,7 +4,9 @@ import { fetchInstallationByCodeInstallation } from "../store/actions/index";
 
 export class InstallationDetails extends Component {
   componentWillMount() {
-    this.props.fetchInstallationByCodeInstallation("440010007");
+    this.props.fetchInstallationByCodeInstallation(
+      this.props.code_installation
+    );
   }
 
   render() {
@@ -29,8 +31,10 @@ export class InstallationDetails extends Component {
     return <div>{Installation}</div>;
   }
 }
+
 const mapStateToProps = state => ({
-  installation: state.fetch.installation
+  installation: state.fetch.installation,
+  code_installation: state.fetch.code_installation
 });
 
 export default connect(mapStateToProps, {
