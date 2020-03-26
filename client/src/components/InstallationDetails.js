@@ -13,14 +13,14 @@ export class InstallationDetails extends Component {
     const Installation = this.props.installation.map(installation => (
       <div key={1}>
         <h1>{installation.nomUsuelDeLInstallation}</h1>
-        <p>Code postal:{installation.codePostal}</p>
-        <p>Departement:{installation.departement}</p>
-        <p>Nom de la commune:{installation.nomDeLaCommune}</p>
-        <p>Adresse:{installation.nomVoie}</p>
+        <p>Code postal : {installation.codePostal}</p>
+        <p>Departement : {installation.departement}</p>
+        <p>Nom de la commune : {installation.nomDeLaCommune}</p>
+        <p>Adresse : {installation.nomVoie}</p>
         <div>
           Desserte:
           <ul>
-            <li>Bus :{installation.desserteBus}</li>
+            <li>Bus : {installation.desserteBus}</li>
             <li>Train : {installation.desserteTrain}</li>
             <li>Metro : {installation.desserteMetro}</li>
           </ul>

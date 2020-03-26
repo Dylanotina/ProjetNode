@@ -4,7 +4,9 @@ import {
   FETCH_CODE_EQUIPEMENT,
   FETCH_CODE_ACTIVITE,
   SET_CODE_INSTALLATION,
-  SET_CODE_EQUIPEMENT
+  SET_CODE_EQUIPEMENT,
+  GET_CODE_POSTAL,
+  SELECT_BY_CODE_POSTAL
 } from "../constants/actions-types.js";
 
 import axios from "axios";
@@ -33,8 +35,6 @@ export const fetchActivitesByCode = payload => dispatch => {
     .get(`http://localhost:3001/api/activite/equipement/${payload}`)
     .then(res => res.data)
     .then(data => dispatch({ type: FETCH_CODE_ACTIVITE, payload: data }));
-
-  return { type: FETCH_CODE_ACTIVITE, payload };
 };
 
 export const setCodeInstallation = payload => dispatch => {
@@ -43,4 +43,16 @@ export const setCodeInstallation = payload => dispatch => {
 
 export const setCodeEquipement = payload => dispatch => {
   dispatch({ type: SET_CODE_EQUIPEMENT, payload: payload });
+};
+
+export const getCodePostal = () => dispatch => {
+  axios
+    .get("http://localhost:3001/api/installation/code")
+    .then(res => res.data)
+    .then(data => dispatch({ type: GET_CODE_POSTAL, payload: data }));
+};
+
+export const selectByCode = payload => dispatch => {
+  console.log("ca marche");
+  dispatch({ type: SELECT_BY_CODE_POSTAL, payload: payload });
 };

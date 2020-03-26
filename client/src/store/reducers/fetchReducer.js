@@ -4,7 +4,9 @@ import {
   FETCH_CODE_EQUIPEMENT,
   FETCH_CODE_ACTIVITE,
   SET_CODE_INSTALLATION,
-  SET_CODE_EQUIPEMENT
+  SET_CODE_EQUIPEMENT,
+  GET_CODE_POSTAL,
+  SELECT_BY_CODE_POSTAL
 } from "../constants/actions-types.js";
 
 const initialState = {
@@ -13,7 +15,9 @@ const initialState = {
   activites: [],
   installation: [],
   code_installation: "",
-  code_equipement: ""
+  code_equipement: "",
+  code_postaux: [],
+  activiteChargee: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -30,7 +34,10 @@ function rootReducer(state = initialState, action) {
           installation =>
             parseInt(installation.noDeLInstallation) ===
             parseInt(action.payload)
-        )
+        ),
+        activiteChargee: false,
+        activites: [],
+        code_equipement: ""
       };
     case FETCH_CODE_EQUIPEMENT:
       return {
@@ -40,7 +47,8 @@ function rootReducer(state = initialState, action) {
     case FETCH_CODE_ACTIVITE:
       return {
         ...state,
-        activites: action.payload
+        activites: action.payload,
+        activiteChargee: true
       };
     case SET_CODE_INSTALLATION:
       return {
@@ -50,7 +58,21 @@ function rootReducer(state = initialState, action) {
     case SET_CODE_EQUIPEMENT:
       return {
         ...state,
-        code_equipement: action.payload
+        code_equipement: action.payload,
+        activiteChargee: false
+      };
+    case GET_CODE_POSTAL:
+      return {
+        ...state,
+        code_postaux: action.payload
+      };
+    case SELECT_BY_CODE_POSTAL:
+      return {
+        ...state,
+        installations: state.installations.filter(
+          installation =>
+            parseInt(installation.codePostal) === parseInt(action.payload)
+        )
       };
     default:
       return state;

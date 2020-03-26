@@ -192,6 +192,20 @@ class InstallationDao {
       return installations;
     });
   }
+
+  getCodePostal() {
+    const sqlRequest =
+      "SELECT DISTINCT code_postal from installation order by code_postal asc ";
+    return this.common.findAll(sqlRequest).then(rows => {
+      let installations = [];
+      for (const row of rows) {
+        if (row.code_postal !== "") {
+          installations.push(row.code_postal);
+        }
+      }
+      return installations;
+    });
+  }
 }
 
 module.exports = InstallationDao;

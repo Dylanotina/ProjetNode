@@ -1,6 +1,8 @@
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import Installation from "../components/Installation";
+import { Carte } from "../components/Carte";
+import "../css/Home.css";
 
 class Home extends React.Component {
   render() {
@@ -8,8 +10,10 @@ class Home extends React.Component {
       <div>
         <h1>Page d'Accueil</h1>
         <SearchBar />
-        <hr />
-        <Installation />
+        <div className="container">
+          <Installation />
+          <Carte />
+        </div>
       </div>
     );
   }

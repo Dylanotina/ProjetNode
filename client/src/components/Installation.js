@@ -5,7 +5,7 @@ import {
   fetchAllInstallation,
   setCodeInstallation
 } from "../store/actions/index";
-import "../css/installations.css";
+import "../css/Installations.css";
 
 class Installation extends React.Component {
   componentWillMount() {
@@ -15,14 +15,22 @@ class Installation extends React.Component {
   /*Partie rendu html */
 
   render() {
+    const TableStyle = {
+      height: "82vh",
+      width: "100vh",
+      overflow: "auto"
+    };
+
     const InstallationsRows = this.props.installations.map(
       (installation, i) => (
-        <tr className="table-dark" key={i}>
-          <td
-            onClick={e =>
-              this.props.setCodeInstallation(installation.noDeLInstallation)
-            }
-          >
+        <tr
+          className="table-dark"
+          key={i}
+          onClick={e =>
+            this.props.setCodeInstallation(installation.noDeLInstallation)
+          }
+        >
+          <td>
             <Link to={`/installation/${installation.noDeLInstallation}`}>
               {installation.noDeLInstallation}
             </Link>
@@ -34,13 +42,7 @@ class Installation extends React.Component {
       )
     );
     return (
-      <div>
-        <h2>Liste des installations</h2>
-        <Link to={"/"}>
-          <button className="btn btn-secondary">Accueil </button>
-        </Link>
-        <br />
-        <br />
+      <div style={TableStyle} className="tableau">
         <table className="table table-hover">
           <thead>
             <tr className="table-warning">
