@@ -1,14 +1,14 @@
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import Installation from "../components/Installation";
-import { Carte } from "../components/Carte";
+import Carte from "../components/Carte";
 import "../css/Home.css";
 
 class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>Page d'Accueil</h1>
+        <h1>Installations Sportives en Loire-Atlantique</h1>
         <SearchBar />
         <div className="container">
           <Installation />

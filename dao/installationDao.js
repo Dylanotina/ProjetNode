@@ -206,6 +206,20 @@ class InstallationDao {
       return installations;
     });
   }
+
+  getVille() {
+    const sqlRequest =
+      "SELECT DISTINCT nom_de_la_commune from installation order by nom_de_la_commune asc ";
+    return this.common.findAll(sqlRequest).then(rows => {
+      let installations = [];
+      for (const row of rows) {
+        if (row.nom_de_la_commune !== "") {
+          installations.push(row.nom_de_la_commune);
+        }
+      }
+      return installations;
+    });
+  }
 }
 
 module.exports = InstallationDao;

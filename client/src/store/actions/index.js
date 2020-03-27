@@ -6,13 +6,14 @@ import {
   SET_CODE_INSTALLATION,
   SET_CODE_EQUIPEMENT,
   GET_CODE_POSTAL,
-  SELECT_BY_CODE_POSTAL
+  SELECT_BY_CODE_POSTAL,
+  GET_VILLE,
+  SELECT_BY_VILLE
 } from "../constants/actions-types.js";
 
 import axios from "axios";
 
 export const fetchAllInstallation = () => dispatch => {
-  console.log("fetching");
   axios
     .get("http://localhost:3001/api/installation")
     .then(response => response.data)
@@ -53,6 +54,16 @@ export const getCodePostal = () => dispatch => {
 };
 
 export const selectByCode = payload => dispatch => {
-  console.log("ca marche");
   dispatch({ type: SELECT_BY_CODE_POSTAL, payload: payload });
+};
+
+export const getVille = () => dispatch => {
+  axios
+    .get("http://localhost:3001/api/installation/ville")
+    .then(res => res.data)
+    .then(data => dispatch({ type: GET_VILLE, data: data }));
+};
+
+export const selectByVille = payload => dispatch => {
+  dispatch({ type: SELECT_BY_VILLE, payload: payload });
 };

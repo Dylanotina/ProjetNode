@@ -32,10 +32,9 @@ class Installation extends React.Component {
         >
           <td>
             <Link to={`/installation/${installation.noDeLInstallation}`}>
-              {installation.noDeLInstallation}
+              {installation.nomUsuelDeLInstallation}
             </Link>
           </td>
-          <td>{installation.nomUsuelDeLInstallation}</td>
           <td>{installation.codePostal}</td>
           <td>{installation.nomDeLaCommune}</td>
         </tr>
@@ -45,8 +44,7 @@ class Installation extends React.Component {
       <div style={TableStyle} className="tableau">
         <table className="table table-hover">
           <thead>
-            <tr className="table-warning">
-              <th>Numéro de l'installation</th>
+            <tr className="thead-dark table-bordered">
               <th>Nom de l'installation</th>
               <th>Code Postal</th>
               <th>Ville</th>

@@ -61,6 +61,12 @@ class InstallationController {
       .then(this.common.findSuccess(res))
       .catch(this.common.findError(res));
   }
+  getVille(res) {
+    this.installationDao
+      .getVille()
+      .then(this.common.findSuccess(res))
+      .catch(this.common.findError(res));
+  }
 }
 
 module.exports = InstallationController;

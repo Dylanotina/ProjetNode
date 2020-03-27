@@ -10,16 +10,25 @@ export class InstallationDetails extends Component {
   }
 
   render() {
+    const style = {
+      listStyle: "none"
+    };
+    const style2 = {
+      display: "flex",
+      justifyContent: "center",
+      alignContent: "center"
+    };
+
     const Installation = this.props.installation.map(installation => (
       <div key={1}>
-        <h1>{installation.nomUsuelDeLInstallation}</h1>
+        <h3>{installation.nomUsuelDeLInstallation}</h3>
         <p>Code postal : {installation.codePostal}</p>
         <p>Departement : {installation.departement}</p>
         <p>Nom de la commune : {installation.nomDeLaCommune}</p>
         <p>Adresse : {installation.nomVoie}</p>
-        <div>
-          Desserte:
-          <ul>
+        <div style={style2}>
+          Dessertes possibles :
+          <ul style={style}>
             <li>Bus : {installation.desserteBus}</li>
             <li>Train : {installation.desserteTrain}</li>
             <li>Metro : {installation.desserteMetro}</li>
@@ -28,7 +37,12 @@ export class InstallationDetails extends Component {
       </div>
     ));
 
-    return <div>{Installation}</div>;
+    return (
+      <div>
+        <h1>Informations supplémentaires sur l'installation</h1>
+        <div style={style2}>{Installation}</div>
+      </div>
+    );
   }
 }
 

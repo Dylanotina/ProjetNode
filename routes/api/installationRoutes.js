@@ -33,4 +33,8 @@ router.get("/code", (req, res) => {
   installationController.getCodePostal(res);
 });
 
+router.get("/ville", (req, res) => {
+  installationController.getVille(res);
+});
+
 module.exports = router;

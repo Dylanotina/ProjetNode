@@ -4,6 +4,7 @@ import {
   fetchEquipementByCode,
   setCodeEquipement
 } from "../store/actions/index";
+import "../css/Equipement.css";
 
 export class Equipements extends Component {
   componentWillMount() {
@@ -24,7 +25,7 @@ export class Equipements extends Component {
     return (
       <div>
         <h3>Equipements disponibles sur le site :</h3>
-        <div>{Equipement}</div>
+        <div className="equipements">{Equipement}</div>
       </div>
     );
   }

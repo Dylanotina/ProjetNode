@@ -6,7 +6,9 @@ import {
   SET_CODE_INSTALLATION,
   SET_CODE_EQUIPEMENT,
   GET_CODE_POSTAL,
-  SELECT_BY_CODE_POSTAL
+  SELECT_BY_CODE_POSTAL,
+  GET_VILLE,
+  SELECT_BY_VILLE
 } from "../constants/actions-types.js";
 
 const initialState = {
@@ -17,7 +19,9 @@ const initialState = {
   code_installation: "",
   code_equipement: "",
   code_postaux: [],
-  activiteChargee: false
+  villes: [],
+  activiteChargee: false,
+  dataChange: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -37,7 +41,8 @@ function rootReducer(state = initialState, action) {
         ),
         activiteChargee: false,
         activites: [],
-        code_equipement: ""
+        code_equipement: "",
+        dataChange: false
       };
     case FETCH_CODE_EQUIPEMENT:
       return {
@@ -72,6 +77,19 @@ function rootReducer(state = initialState, action) {
         installations: state.installations.filter(
           installation =>
             parseInt(installation.codePostal) === parseInt(action.payload)
+        ),
+        dataChange: true
+      };
+    case GET_VILLE:
+      return {
+        ...state,
+        villes: action.data
+      };
+    case SELECT_BY_VILLE:
+      return {
+        ...state,
+        installations: state.installations.filter(
+          installation => installation.nomDeLaCommune === action.payload
         )
       };
     default:
