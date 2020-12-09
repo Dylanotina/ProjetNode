@@ -22,11 +22,18 @@ server.use(REST_API_ROOT, require("./routes/router"));
 
 server.use("/static", express.static("static"));
 
+if (process.env.NODE_ENV === "production") {
+  server.use(express.static(__dirname + "/build/"));
+
+  server.get(/.*/, (req, res) => {
+    res.sendFile(__dirname + "/build/index.html");
+  });
+}
 server.get("/endpoint", (req, res) => {
   res.redirect(REST_API_ROOT + "/activite/recuperer");
 });
 
-server.listen(3001, err => {
+server.listen(4001, err => {
   if (err) throw err;
-  console.log("> Ready on http://localhost:3001");
+  console.log("> Ready on http://localhost:4001");
 });

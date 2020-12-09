@@ -5,7 +5,7 @@ import {
   fetchAllInstallation,
   setCodeInstallation
 } from "../store/actions/index";
-import "../css/Installations.css";
+//import "../css/Installations.css";
 
 class Installation extends React.Component {
   componentWillMount() {

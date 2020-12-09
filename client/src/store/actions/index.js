@@ -15,7 +15,7 @@ import axios from "axios";
 
 export const fetchAllInstallation = () => dispatch => {
   axios
-    .get("http://localhost:3001/api/installation")
+    .get("http://localhost:4001/api/installation")
     .then(response => response.data)
     .then(data => dispatch({ type: FETCH_ALL_INSTALLATION, payload: data }));
 };
@@ -26,14 +26,14 @@ export const fetchInstallationByCodeInstallation = payload => dispatch => {
 
 export const fetchEquipementByCode = payload => dispatch => {
   axios
-    .get(`http://localhost:3001/api/equipement/installation/${payload}`)
+    .get(`http://localhost:4001/api/equipement/installation/${payload}`)
     .then(res => res.data)
     .then(data => dispatch({ type: FETCH_CODE_EQUIPEMENT, payload: data }));
 };
 
 export const fetchActivitesByCode = payload => dispatch => {
   axios
-    .get(`http://localhost:3001/api/activite/equipement/${payload}`)
+    .get(`http://localhost:4001/api/activite/equipement/${payload}`)
     .then(res => res.data)
     .then(data => dispatch({ type: FETCH_CODE_ACTIVITE, payload: data }));
 };
@@ -48,7 +48,7 @@ export const setCodeEquipement = payload => dispatch => {
 
 export const getCodePostal = () => dispatch => {
   axios
-    .get("http://localhost:3001/api/installation/code")
+    .get("http://localhost:4001/api/installation/code")
     .then(res => res.data)
     .then(data => dispatch({ type: GET_CODE_POSTAL, payload: data }));
 };
@@ -59,7 +59,7 @@ export const selectByCode = payload => dispatch => {
 
 export const getVille = () => dispatch => {
   axios
-    .get("http://localhost:3001/api/installation/ville")
+    .get("http://localhost:4001/api/installation/ville")
     .then(res => res.data)
     .then(data => dispatch({ type: GET_VILLE, data: data }));
 };
